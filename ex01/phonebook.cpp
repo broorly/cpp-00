@@ -10,11 +10,21 @@ Phonebook::~Phonebook(){
 int	Phonebook::replace_contact()
 {
 	int		i;
+	std :: string s;
 	
 	i = 0;
 	while (i < 7)
 	{
-		contacts[i] = contacts[i+1];
+		s = contacts[i+1].get_first_name();
+		contacts[i].set_first_name(s);
+		s = contacts[i+1].get_last_name();
+		contacts[i].set_last_name(s);
+		s = contacts[i+1].get_nick_name();
+		contacts[i].set_nick_name(s);
+		s = contacts[i+1].get_phone_number();
+		contacts[i].set_phone_number(s);
+		s = contacts[i+1].get_darkest_secret();
+		contacts[i].set_darkest_secret(s);
 		i++;
 	}
 	return (0);
@@ -38,7 +48,6 @@ void	Phonebook::add_contact(int i)
 	std::string s;
 	if (i == 8)
 		i = replace_contact();
-
 	s = add_contact_routine("first name");
 	contacts[i].set_first_name(s);
 	s = add_contact_routine("last name");
@@ -88,7 +97,7 @@ void	Phonebook::display_full_phonebook()
 	i = 55;
 	while (i--)
 		std::cout << "*";
-	std::cout << std::endl << "*" << "   INDEX    | FIRST NAME |  LAST NAME |  NICKNAME  *" << std::endl;
+	std::cout << std::endl << "*" << "   INDEX    | FIRST NAME |  LAST NAME |  NICKNAME    *" << std::endl;
 	i = 55;
 	while (i--)
 		std::cout << "*";

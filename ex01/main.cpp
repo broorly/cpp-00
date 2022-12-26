@@ -8,7 +8,7 @@ int main()
 
 	i = 0;
 	std::cout << "Welcome in the PHONEBOOK. Type ADD, SEARCH or EXIT to continue" << std::endl;
-	while (true)
+	while (1)
 	{
 		std::getline(std::cin, arg);
 		if (arg == "ADD")

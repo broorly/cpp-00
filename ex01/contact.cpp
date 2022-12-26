@@ -1,12 +1,12 @@
 #include"contact.hpp"
 
 Contact::Contact() {
-	//std::cout << "Constructor of Contact called" << std::endl;
-	this->first_name = first_name;
-	this->last_name = last_name;
-	this->last_name = nick_name;
-	this->phone_number = phone_number;
-	this->darkest_secret = darkest_secret;
+	// std::cout << "Constructor of Contact called" << std::endl;
+	// this->first_name = first_name;
+	// this->last_name = last_name;
+	// this->last_name = nick_name;
+	// this->phone_number = phone_number;
+	// this->darkest_secret = darkest_secret;
 }
 
 Contact::~Contact() {
@@ -22,7 +22,6 @@ void	Contact::set_first_name(std::string first_name){
 }
 
 std::string		Contact::get_first_name() const{
-	//std::cout << this->first_name << std::endl;
 	return (this->first_name);
 }
 
@@ -36,7 +35,6 @@ void	Contact::set_last_name(std::string last_name) {
 }
 
 std::string		Contact::get_last_name() const{
-	//std::cout << this->last_name << std::endl;
 	return (this->last_name);
 }
 
@@ -50,7 +48,6 @@ void	Contact::set_nick_name(std::string nick_name) {
 }
 
 std::string		Contact::get_nick_name() const{
-	//std::cout << this->nick_name << std::endl;
 	return (this->nick_name);
 }
 
@@ -64,7 +61,6 @@ void	Contact::set_phone_number(std::string phone_number) {
 }
 
 std::string		Contact::get_phone_number() const{
-	//std::cout << this->phone_number << std::endl;
 	return (this->phone_number);
 }
 
@@ -78,6 +74,5 @@ void	Contact::set_darkest_secret(std::string darkest_secret) {
 }
 
 std::string		Contact::get_darkest_secret() const{
-	//std::cout << this->darkest_secret << std::endl;
 	return (this->darkest_secret);
 }
