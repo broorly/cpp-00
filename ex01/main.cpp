@@ -5,22 +5,34 @@ int main()
 	Phonebook	phonebook;
 	std::string	arg;
 	int			i;
+	int			d;
 
 	i = 0;
+	d = 0;
 	std::cout << "Welcome in the PHONEBOOK. Type ADD, SEARCH or EXIT to continue" << std::endl;
 	while (1)
 	{
 		std::getline(std::cin, arg);
 		if (arg == "ADD")
 		{
+			if (i == 8 || i == 7)
+			{
+				if(i == 8)
+					i = 0;
+				if(i == 7)
+					d = 1;
+			}
 			phonebook.add_contact(i);
-			if (i == 8)
-				i--;
 			i++;
 		}
 		else if (arg == "SEARCH")
 		{
-			phonebook.display_full_phonebook();
+			//if (d == 1)
+				phonebook.display_full_phonebook();
+			// else
+			// 	{
+
+			// 	}
 			phonebook.search_contact_by_index();
 				
 		}

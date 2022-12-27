@@ -7,29 +7,6 @@ Phonebook::Phonebook(){
 Phonebook::~Phonebook(){
 }
 
-int	Phonebook::replace_contact()
-{
-	int		i;
-	std :: string s;
-	
-	i = 0;
-	while (i < 7)
-	{
-		s = contacts[i+1].get_first_name();
-		contacts[i].set_first_name(s);
-		s = contacts[i+1].get_last_name();
-		contacts[i].set_last_name(s);
-		s = contacts[i+1].get_nick_name();
-		contacts[i].set_nick_name(s);
-		s = contacts[i+1].get_phone_number();
-		contacts[i].set_phone_number(s);
-		s = contacts[i+1].get_darkest_secret();
-		contacts[i].set_darkest_secret(s);
-		i++;
-	}
-	return (0);
-}
-
 std::string	Phonebook::add_contact_routine(std::string s)
 {
 	std::cin.clear();
@@ -46,8 +23,7 @@ std::string	Phonebook::add_contact_routine(std::string s)
 void	Phonebook::add_contact(int i)
 {
 	std::string s;
-	if (i == 8)
-		i = replace_contact();
+
 	s = add_contact_routine("first name");
 	contacts[i].set_first_name(s);
 	s = add_contact_routine("last name");
@@ -123,19 +99,16 @@ void	Phonebook::search_contact_by_index()
 	std::cout << "Enter the index of the contact you would like to be seen, between 1 and 8." << std::endl;
 	std::getline(std::cin, s);
 	std::cin.clear();
-	try {
+	if(!s.empty())
 		index = std::stoi(s);
-		if (index > 9 || index < 0)
-			return ;
-	} catch (std::exception invalid_index) {
-		std::cout << "Invalid index. Please be sure to insert an index between 1 and 8." << std::endl;
-		return ;
-	}
+		if (s.empty() || index > 9 || index < 0)
+		{
+			std::cout << "Invalid index. Please be sure to insert an index between 1 and 8." << std::endl;
+			return;
+		}
 	
-	std::cout << index << std::endl;
+	std::cout << index << std::endl; 
 
-
-	
 	std::cout << "First Name : " << contacts[index-1].get_first_name() << std::endl;
 	std::cout << "Last Name : " << contacts[index-1].get_last_name() << std::endl;
 	std::cout << "Nickname : " << contacts[index-1].get_nick_name() << std::endl;
