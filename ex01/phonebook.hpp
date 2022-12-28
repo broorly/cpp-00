@@ -25,6 +25,7 @@ public:
 	std::string	add_contact_routine(std::string s);
 
 	void	display_full_phonebook();
+	void	display_phonebook(int x);
 	void	display_contact(Contact contact, int i);
 	void	printer(std::string s);
 	void	search_contact_by_index();

@@ -13,6 +13,8 @@ int main()
 	while (1)
 	{
 		std::getline(std::cin, arg);
+		if(std ::cin.eof())
+			arg = "EXIT";
 		if (arg == "ADD")
 		{
 			if (i == 8 || i == 7)
@@ -27,12 +29,12 @@ int main()
 		}
 		else if (arg == "SEARCH")
 		{
-			//if (d == 1)
+			if (d == 1)
 				phonebook.display_full_phonebook();
-			// else
-			// 	{
-
-			// 	}
+			else
+			{
+					phonebook.display_phonebook(i);
+			}
 			phonebook.search_contact_by_index();
 				
 		}

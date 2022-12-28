@@ -12,6 +12,8 @@ std::string	Phonebook::add_contact_routine(std::string s)
 	std::cin.clear();
 	std::cout << std::endl << "Enter the " << s << " of your contact." << std::endl;
 	std::getline(std::cin, s);
+	if(std ::cin.eof())
+		exit(0);
 	while (s.empty())
 	{
 		std::cout << "You cannot let empty fields! Please reinsert this field." << std::endl;
@@ -64,6 +66,30 @@ void	Phonebook::display_contact(Contact contact, int i)
 	printer(contact.get_nick_name());
 	std::cout << "   " << "*" << std::endl;
 }
+void	Phonebook::display_phonebook(int x)
+{
+	int			i;
+	std::string	s;
+
+	i = 55;
+	while (i--)
+		std::cout << "*";
+	std::cout << std::endl << "*" << "   INDEX    | FIRST NAME |  LAST NAME |  NICKNAME    *" << std::endl;
+	i = 55;
+	while (i--)
+		std::cout << "*";
+	std::cout << std::endl;
+	i = 0;
+	while (i < x)
+	{
+		display_contact(contacts[i], i);
+		i++;
+	}
+	i = 55;
+	while (i--)
+		std::cout << "*";
+	std::cout << std::endl;
+}
 
 void	Phonebook::display_full_phonebook()
 {
@@ -95,12 +121,18 @@ void	Phonebook::search_contact_by_index()
 {
 	int			index;
 	std::string	s;
+	int 		i;
 
+	index = -1;
+	i = 0;
 	std::cout << "Enter the index of the contact you would like to be seen, between 1 and 8." << std::endl;
 	std::getline(std::cin, s);
 	std::cin.clear();
 	if(!s.empty())
+	{
 		index = std::stoi(s);
+	}
+		
 		if (s.empty() || index > 9 || index < 0)
 		{
 			std::cout << "Invalid index. Please be sure to insert an index between 1 and 8." << std::endl;
