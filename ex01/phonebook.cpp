@@ -120,20 +120,32 @@ void	Phonebook::display_full_phonebook()
 void	Phonebook::search_contact_by_index()
 {
 	int			index;
-	std::string	s;
 	int 		i;
+	std:: string s;
+	int x;
 
 	index = -1;
 	i = 0;
 	std::cout << "Enter the index of the contact you would like to be seen, between 1 and 8." << std::endl;
 	std::getline(std::cin, s);
+	// std::cin >> index;
 	std::cin.clear();
+	x = 0;
+	while(s[x])
+	{
+		if(isalpha(s[x]))
+		{
+			std::cout << "Invalid index. Please be sure to insert an index between 1 and 8." << std::endl;
+			return;
+		}
+		x++;
+	}
 	if(!s.empty())
 	{
 		index = std::stoi(s);
 	}
 		
-		if (s.empty() || index > 9 || index < 0)
+		if (index > 9 || index < 0)
 		{
 			std::cout << "Invalid index. Please be sure to insert an index between 1 and 8." << std::endl;
 			return;
