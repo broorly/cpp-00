@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/06 14:44:17 by mrafik            #+#    #+#             */
+/*   Updated: 2023/01/06 15:32:01 by mrafik           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include "phonebook.hpp"
 
@@ -128,12 +140,11 @@ void	Phonebook::search_contact_by_index()
 	i = 0;
 	std::cout << "Enter the index of the contact you would like to be seen, between 1 and 8." << std::endl;
 	std::getline(std::cin, s);
-	// std::cin >> index;
 	std::cin.clear();
 	x = 0;
 	while(s[x])
 	{
-		if(isalpha(s[x]))
+		if(isalpha(s[x]) || 3 < s.length())
 		{
 			std::cout << "Invalid index. Please be sure to insert an index between 1 and 8." << std::endl;
 			return;
@@ -144,15 +155,12 @@ void	Phonebook::search_contact_by_index()
 	{
 		index = std::stoi(s);
 	}
-		
-		if (index > 9 || index < 0)
-		{
-			std::cout << "Invalid index. Please be sure to insert an index between 1 and 8." << std::endl;
-			return;
-		}
-	
-	std::cout << index << std::endl; 
-
+	if (index > 9 || index < 0)
+	{
+		std::cout << "Invalid index. Please be sure to insert an index between 1 and 8." << std::endl;
+		return;
+	}
+	std::cout << index << std::endl;
 	std::cout << "First Name : " << contacts[index-1].get_first_name() << std::endl;
 	std::cout << "Last Name : " << contacts[index-1].get_last_name() << std::endl;
 	std::cout << "Nickname : " << contacts[index-1].get_nick_name() << std::endl;
