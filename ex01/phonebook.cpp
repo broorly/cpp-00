@@ -6,7 +6,7 @@
 /*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:44:17 by mrafik            #+#    #+#             */
-/*   Updated: 2023/01/06 15:32:01 by mrafik           ###   ########.fr       */
+/*   Updated: 2023/01/06 19:43:51 by mrafik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ std::string	Phonebook::add_contact_routine(std::string s)
 	{
 		std::cout << "You cannot let empty fields! Please reinsert this field." << std::endl;
 		std::getline(std::cin, s);
+		if(std ::cin.eof())
+		exit(0);
 	}
 	return (s);
 }
@@ -155,7 +157,7 @@ void	Phonebook::search_contact_by_index()
 	{
 		index = std::stoi(s);
 	}
-	if (index > 9 || index < 0)
+	if (index > 9 || index <= 0)
 	{
 		std::cout << "Invalid index. Please be sure to insert an index between 1 and 8." << std::endl;
 		return;

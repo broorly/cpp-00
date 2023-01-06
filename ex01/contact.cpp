@@ -6,19 +6,13 @@
 /*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:44:07 by mrafik            #+#    #+#             */
-/*   Updated: 2023/01/06 14:44:08 by mrafik           ###   ########.fr       */
+/*   Updated: 2023/01/06 19:46:04 by mrafik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"contact.hpp"
 
 Contact::Contact() {
-	// std::cout << "Constructor of Contact called" << std::endl;
-	// this->first_name = first_name;
-	// this->last_name = last_name;
-	// this->last_name = nick_name;
-	// this->phone_number = phone_number;
-	// this->darkest_secret = darkest_secret;
 }
 
 Contact::~Contact() {
